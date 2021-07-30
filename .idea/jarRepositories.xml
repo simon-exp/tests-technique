@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="repo1-maven-org" />
+      <option name="name" value="repo1-maven-org" />
+      <option name="url" value="https://nexus.kazan.myworldline.com/repository/scc-bnpp-bnl-nexus-1-group" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gps-ecs-contact-nexus3-group" />
+      <option name="name" value="gps-ecs-contact-nexus3-group" />
+      <option name="url" value="https://nexus.kazan.myworldline.com/repository/gps-ecs-contact-nexus3-group/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central-maven-org" />
+      <option name="name" value="central-maven-org" />
+      <option name="url" value="https://nexus.kazan.myworldline.com/repository/scc-bnpp-bnl-nexus-1-group" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="solstice-nexus3-group" />
+      <option name="name" value="solstice-nexus3-group" />
+      <option name="url" value="https://nexus.kazan.myworldline.com/repository/solstice-nexus3-group/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="chat-solution-nexus3-group" />
+      <option name="name" value="chat-solution-nexus3-group" />
+      <option name="url" value="https://nexus.kazan.myworldline.com/repository/scc-bnpp-bnl-nexus-1-group" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://nexus.kazan.myworldline.com/repository/scc-bnpp-bnl-nexus-1-group" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="survey-nexus3-group" />
+      <option name="name" value="survey-nexus3-group" />
+      <option name="url" value="https://nexus.kazan.myworldline.com/repository/scc-bnpp-bnl-nexus-1-group" />
+    </remote-repository>
+  </component>
+</project>
