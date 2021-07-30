@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: adeo.leroymerlin.cdp.EventControllerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.712 s - in adeo.leroymerlin.cdp.EventControllerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.069 s - in adeo.leroymerlin.cdp.EventControllerTest

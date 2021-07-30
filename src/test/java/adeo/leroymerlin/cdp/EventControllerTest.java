@@ -4,6 +4,8 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -25,7 +27,7 @@ public class EventControllerTest {
     @Autowired
     private MockMvc mvc;
 
-
+    Logger logger = LoggerFactory.getLogger(EventControllerTest.class);
 
     /**
      * test of find events Rest method
@@ -34,10 +36,11 @@ public class EventControllerTest {
     @Test
     @Order(1)
     public void testFindEvents() throws Exception {
+        logger.info("start findEvents endpoint Test");
         mvc.perform(MockMvcRequestBuilders.get("/api/events/").accept(MediaType.APPLICATION_JSON))
                 //test the return status code
                 .andExpect(status().isOk())
-                .andDo(MockMvcResultHandlers.print())
+                //.andDo(MockMvcResultHandlers.print())
                 //test body response json strucure
                 .andExpect(jsonPath("$.length()").value(5))
                 .andExpect(jsonPath("$[0].id").value(1000))
@@ -50,7 +53,7 @@ public class EventControllerTest {
                 .andExpect(jsonPath("$[2].bands.length()").value(1))
                 .andExpect(jsonPath("$[2].bands[0].name").value("AC/DC"))
 ;
-
+        logger.info("end findEvents endpoint Test");
     }
 
     /**
@@ -60,10 +63,11 @@ public class EventControllerTest {
     @Test
     @Order(2)
     public void testFindEventsQuery() throws Exception {
+        logger.info("start findEvents filtered endpoint Test");
         mvc.perform(MockMvcRequestBuilders.get("/api/events/search/Wa").accept(MediaType.APPLICATION_JSON))
                 //test the return status code
                 .andExpect(status().isOk())
-                .andDo(MockMvcResultHandlers.print())
+                //.andDo(MockMvcResultHandlers.print())
                 //test body response json strucure for Wa filter
                 .andExpect(jsonPath("$.length()").value(1))
                 .andExpect(jsonPath("$[0].id").value(1000))
@@ -75,11 +79,13 @@ public class EventControllerTest {
                 .andExpect(jsonPath("$[0].bands[0].members[0].name").value("Queen Anika Walsh"))
         ;
 
+        logger.info("end findEvents filtered endpoint Test");
     }
 
     @Test
     @Order(3)
     public void testUpdateEvent() throws Exception {
+        logger.info("start update event endpoint Test");
         mvc.perform(MockMvcRequestBuilders.put("/api/events/1001")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -93,16 +99,19 @@ public class EventControllerTest {
                 .andExpect(jsonPath("$[1].id").value(1001))
                 .andExpect(jsonPath("$[1].comment").value("test comment"));
 
+        logger.info("end update event endpoint Test");
     }
 
     @Test
     @Order(4)
     public void testDeleteEvent() throws Exception {
+
+        logger.info("start delete event endpoint Test");
         //retrieve the complete event list
         mvc.perform(MockMvcRequestBuilders.get("/api/events/").accept(MediaType.APPLICATION_JSON))
                 //test the return status code
                 .andExpect(status().isOk())
-                .andDo(MockMvcResultHandlers.print())
+                //.andDo(MockMvcResultHandlers.print())
                 //test body response json strucure
                 .andExpect(jsonPath("$.length()").value(5));
 
@@ -114,8 +123,9 @@ public class EventControllerTest {
         mvc.perform(MockMvcRequestBuilders.get("/api/events/").accept(MediaType.APPLICATION_JSON))
                 //test the return status code
                 .andExpect(status().isOk())
-                .andDo(MockMvcResultHandlers.print())
+                //.andDo(MockMvcResultHandlers.print())
                 //test body response json strucure
                 .andExpect(jsonPath("$.length()").value(4)).andReturn();
+        logger.info("end delete event endpoint Test");
     }
 }
